@@ -6,15 +6,15 @@ Ruby wrapper for [mangaeden.com](http://mangaeden.com/).
 
 Add this line to your application's Gemfile:
 
-gem 'mangaeden_api', :git => 'git://github.com/lucaferri/mangaeden_api.git'
+	gem 'mangaeden_api', :git => 'git://github.com/lucaferri/mangaeden_api.git'
 
 And then execute:
 
-$ bundle
+	$ bundle
 
 Or install it yourself as:
 
-$ gem install mangaeden_api --source https://github.com/lucaferri/mangaeden_api.git
+	$ gem install mangaeden_api --source https://github.com/lucaferri/mangaeden_api.git
 
 ## Usage
 
