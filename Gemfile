@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 group :test do
+  gem 'webmock'
   gem 'vcr'
   gem 'rake'
   gem 'rspec'
