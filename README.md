@@ -30,5 +30,5 @@ Or install it yourself as:
 
 ## License
 
-This gem is released under the New BSD License.
+This gem is released under the [MIT License](http://www.opensource.org/licenses/MIT).
 Copyright 2015 Luca Ferri.
