@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{A Mangaeden API wrapper}
   gem.summary       = %q{Wrapper for Mangaeden API (http://www.mangaeden.com/api/)}
   gem.homepage      = "http://lucaferri.github.io/mangaeden_api"
-  gem.license       = 'new BSD'
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
