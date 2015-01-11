@@ -1,5 +1,6 @@
 # MangaedenApi
 
+[![GitHub version](https://badge.fury.io/gh/lucaferri%2Fmangaeden_api.svg)](http://badge.fury.io/gh/lucaferri%2Fmangaeden_api)
 [![Build Status](https://travis-ci.org/lucaferri/mangaeden_api.svg?branch=master)](https://travis-ci.org/lucaferri/mangaeden_api)
 [![Coverage Status](https://img.shields.io/coveralls/lucaferri/mangaeden_api.svg)](https://coveralls.io/r/lucaferri/mangaeden_api)
 [![Inline docs](https://inch-ci.org/github/lucaferri/mangaeden_api.svg?branch=master)](https://inch-ci.org/github/lucaferri/mangaeden_api.svg?branch=master)
