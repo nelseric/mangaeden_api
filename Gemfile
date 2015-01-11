@@ -8,6 +8,5 @@ group :test do
   gem 'coveralls', require: false
 end
 
-
 # Specify your gem's dependencies in the_tvdb.gemspec
 gemspec

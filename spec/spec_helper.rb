@@ -8,13 +8,12 @@ require 'mangaeden_api'
 require 'webmock/rspec'
 require 'vcr'
 
-
-#VCR config
+# VCR config
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/mangaeden_api'
   config.hook_into :webmock
 end
 
-#RSPEC config
+# RSPEC config
 RSpec.configure do |config|
 end

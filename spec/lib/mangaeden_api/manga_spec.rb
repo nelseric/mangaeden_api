@@ -1,28 +1,26 @@
 require_relative '../../spec_helper'
 
 describe MangaedenApi::Mangaeden do
-  
   before do
     VCR.insert_cassette 'manga', record: :new_episodes
   end
-  
+
   after do
     VCR.eject_cassette
   end
-  
-  describe ".search" do
-    
+
+  describe '.search' do
     let(:mangas) { MangaedenApi::Manga::search('Naruto') }
     let(:downcase_mangas) { MangaedenApi::Manga::search('naruto') }
-    
-    it "should return an array of Manga objects" do
+
+    it 'should return an array of Manga objects' do
       expect(mangas).to be_instance_of(Array)
       mangas.each do |m|
         expect(m).to be_instance_of(MangaedenApi::Manga)
       end
     end
-    
-    it "should perform a case-insensitive search" do
+
+    it 'should perform a case-insensitive search' do
       expect(mangas.count).to eq(downcase_mangas.count)
       mangas.each_with_index do |manga, i|
         expect(manga.manga_id).to eq(downcase_mangas[i].manga_id)
@@ -42,35 +40,31 @@ describe MangaedenApi::Mangaeden do
         expect(manga.language).to eq(downcase_mangas[i].language)
         expect(manga.last_chapter_date).to eq(downcase_mangas[i].last_chapter_date)
         expect(manga.released).to eq(downcase_mangas[i].released)
-        expect(manga.startsWith).to eq(downcase_mangas[i].startsWith)
+        expect(manga.starts_with).to eq(downcase_mangas[i].starts_with)
         expect(manga.status).to eq(downcase_mangas[i].status)
         expect(manga.title).to eq(downcase_mangas[i].title)
         expect(manga.title_kw).to eq(downcase_mangas[i].title_kw)
         expect(manga.type).to eq(downcase_mangas[i].type)
-        expect(manga.updatedKeywords).to eq(downcase_mangas[i].updatedKeywords)
+        expect(manga.updated_keywords).to eq(downcase_mangas[i].updated_keywords)
       end
     end
-    
-    it "should return a list of Manga with the same title I searched" do
+
+    it 'should return a list of Manga with the same title I searched' do
       mangas.each do |m|
         expect(m.title.downcase).to eq('Naruto'.downcase)
       end
     end
-    
   end
-  
-  describe ".chapters" do
-    
+
+  describe '.chapters' do
     let(:manga) { MangaedenApi::Mangaeden::get_manga_info('4e70e9f6c092255ef7004336') }
     let(:chapters) { manga.chapters }
-    
-    it "should return an array of Chapter objects" do
+
+    it 'should return an array of Chapter objects' do
       expect(chapters).to be_instance_of(Array)
       chapters.each do |c|
         expect(c).to be_instance_of(MangaedenApi::Chapter)
       end
     end
-    
   end
-  
 end
