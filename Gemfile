@@ -5,6 +5,7 @@ group :test do
   gem 'vcr'
   gem 'rake'
   gem 'rspec'
+  gem 'coveralls', require: false
 end
 
 
