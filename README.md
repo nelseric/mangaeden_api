@@ -19,7 +19,17 @@ And then execute:
 
 Or install it yourself as:
 
-	$ gem install mangaeden_api --source https://github.com/lucaferri/mangaeden_api.git
+*Download the source:*
+
+    git clone https://github.com/lucaferri/mangaeden_api.git
+
+*Build the gem:*
+
+    cd mangaeden_api && gem build mangaeden_api.gemspec
+
+*Install it (the filename/version may vary):*
+
+    gem install mangaeden_api-0.1.0.gem
 
 ## Usage
 
