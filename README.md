@@ -1,6 +1,7 @@
 # MangaedenApi
 
 [![Build Status](https://travis-ci.org/lucaferri/mangaeden_api.svg?branch=master)](https://travis-ci.org/lucaferri/mangaeden_api)
+[![Inline docs](https://inch-ci.org/github/lucaferri/mangaeden_api.svg?branch=master)](https://inch-ci.org/github/lucaferri/mangaeden_api.svg?branch=master)
 
 Ruby wrapper for [mangaeden.com](http://mangaeden.com/).
 
