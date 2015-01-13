@@ -10,10 +10,10 @@ describe MangaedenApi::Mangaeden do
   end
 
   describe '.get_manga_list' do
-    let(:en_mangas) { MangaedenApi::Mangaeden::get_manga_list }
-    let(:it_mangas) { MangaedenApi::Mangaeden::get_manga_list('it') }
-    let(:paginated_mangas) { MangaedenApi::Mangaeden::get_manga_list('en', 1) }
-    let(:limited_paginated_mangas) { MangaedenApi::Mangaeden::get_manga_list('en', 1, 30) }
+    let(:en_mangas) { MangaedenApi::Mangaeden.get_manga_list }
+    let(:it_mangas) { MangaedenApi::Mangaeden.get_manga_list('it') }
+    let(:paginated_mangas) { MangaedenApi::Mangaeden.get_manga_list('en', 1) }
+    let(:limited_paginated_mangas) { MangaedenApi::Mangaeden.get_manga_list('en', 1, 30) }
 
     it 'should return the entire english list of manga' do
       expect(en_mangas).to be_instance_of(Array)
@@ -49,7 +49,7 @@ describe MangaedenApi::Mangaeden do
   end
 
   describe '.get_manga_info' do
-    let(:manga) { MangaedenApi::Mangaeden::get_manga_info('4e70e9f6c092255ef7004336') }
+    let(:manga) { MangaedenApi::Mangaeden.get_manga_info('4e70e9f6c092255ef7004336') }
 
     it 'should return a Manga' do
       expect(manga).to be_instance_of(MangaedenApi::Manga)
@@ -64,7 +64,7 @@ describe MangaedenApi::Mangaeden do
       expect(manga.artist_kw).to eq(Array.new)
       expect(manga.author).to eq('')
       expect(manga.author_kw).to eq(Array.new)
-      expect(manga.categories).to eq(['Comedy', 'Drama', 'Action'])
+      expect(manga.categories).to eq(%w(Comedy Drama Action))
       expect(manga.chapters_info).to eq([
         [5, 1_275_542_373.0, '5', '4e711cb0c09225616d037cc2'],
         [4, 1_275_542_373.0, '4', '4e711cb1c09225616d037ce4'],

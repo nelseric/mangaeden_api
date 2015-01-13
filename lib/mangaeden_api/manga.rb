@@ -38,12 +38,12 @@ module MangaedenApi
     # Search for mangas with the specified title (case-insensitive) and return
     # an array of manga objects
     def self.search(title)
-      manga_list = MangaedenApi::Mangaeden::get_manga_list.select do |m| 
+      manga_list = MangaedenApi::Mangaeden.get_manga_list.select do |m|
         m['t'].downcase == title.downcase
       end
       mangas = []
       manga_list.each do |m|
-        mangas << MangaedenApi::Mangaeden::get_manga_info(m['i'])
+        mangas << MangaedenApi::Mangaeden.get_manga_info(m['i'])
       end
       mangas
     end
@@ -52,7 +52,7 @@ module MangaedenApi
     def chapters
       chapters = []
       @chapters_info.each do |c|
-        chapters << MangaedenApi::Mangaeden::get_chapter_images(c)
+        chapters << MangaedenApi::Mangaeden.get_chapter_images(c)
       end
       chapters
     end

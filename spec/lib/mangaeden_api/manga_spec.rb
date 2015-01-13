@@ -10,8 +10,8 @@ describe MangaedenApi::Mangaeden do
   end
 
   describe '.search' do
-    let(:mangas) { MangaedenApi::Manga::search('Naruto') }
-    let(:downcase_mangas) { MangaedenApi::Manga::search('naruto') }
+    let(:mangas) { MangaedenApi::Manga.search('Naruto') }
+    let(:downcase_mangas) { MangaedenApi::Manga.search('naruto') }
 
     it 'should return an array of Manga objects' do
       expect(mangas).to be_instance_of(Array)
@@ -57,7 +57,7 @@ describe MangaedenApi::Mangaeden do
   end
 
   describe '.chapters' do
-    let(:manga) { MangaedenApi::Mangaeden::get_manga_info('4e70e9f6c092255ef7004336') }
+    let(:manga) { MangaedenApi::Mangaeden.get_manga_info('4e70e9f6c092255ef7004336') }
     let(:chapters) { manga.chapters }
 
     it 'should return an array of Chapter objects' do

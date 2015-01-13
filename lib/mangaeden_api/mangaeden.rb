@@ -26,14 +26,17 @@ module MangaedenApi
     # Same as above but returns only Y manga's informations
     # (from manga X*Y to (X+1)*Y) [25 < Y < 1500]
     def self.get_manga_list(language = 'en', page = nil, page_size = nil)
-      case language
-      when 'en'
-        language_code = 0
-      when 'it'
-        language_code = 1
-      else
-        language_code = 0
-      end
+      # case language
+      # when 'en'
+      #   language_code = 0
+      # when 'it'
+      #   language_code = 1
+      # else
+      #   language_code = 0
+      # end
+
+      language_code = 0
+      language_code = 1 if language == 'it'
 
       url = MangaedenApi::API_HOST + "/list/#{language_code}/"
 
@@ -43,7 +46,7 @@ module MangaedenApi
       end
 
       uri = URI.parse(url)
-      mangas = JSON.parse(Net::HTTP::get(uri))
+      mangas = JSON.parse(Net::HTTP.get(uri))
       mangas['manga']
     end
 
@@ -57,7 +60,7 @@ module MangaedenApi
     def self.get_manga_info(manga_id)
       url = MangaedenApi::API_HOST + "manga/#{manga_id}/"
       uri = URI.parse(url)
-      manga_info = JSON.parse(Net::HTTP::get(uri))
+      manga_info = JSON.parse(Net::HTTP.get(uri))
       MangaedenApi::Manga.new(manga_info, manga_id)
     end
 
@@ -72,7 +75,7 @@ module MangaedenApi
     def self.get_chapter_images(chapter_info)
       url = MangaedenApi::API_HOST + "chapter/#{chapter_info[3]}/"
       uri = URI.parse(url)
-      images = JSON.parse(Net::HTTP::get(uri))
+      images = JSON.parse(Net::HTTP.get(uri))
       MangaedenApi::Chapter.new(images, chapter_info)
     end
   end
