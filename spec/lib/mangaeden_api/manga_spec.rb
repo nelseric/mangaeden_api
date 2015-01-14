@@ -1,6 +1,6 @@
 require_relative '../../spec_helper'
 
-describe MangaedenApi::Mangaeden do
+describe MangaedenApi::Manga do
   before do
     VCR.insert_cassette 'manga', record: :new_episodes
   end
