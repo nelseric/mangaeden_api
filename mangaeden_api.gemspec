@@ -3,23 +3,22 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mangaeden_api/version'
 
-Gem::Specification.new do |gem|
-  gem.platform      = Gem::Platform::RUBY
-  gem.name          = 'mangaeden_api'
-  gem.version       = MangaedenApi::VERSION
-  gem.authors       = ['Luca Ferri']
-  gem.email         = ['luca.ferri88@gmail.com']
-  gem.description   = 'A Mangaeden API wrapper'
-  gem.summary       = 'Wrapper for Mangaeden API (http://www.mangaeden.com/api/)'
-  gem.homepage      = 'http://lucaferri.github.io/mangaeden_api'
-  gem.license       = 'MIT'
+Gem::Specification.new do |s|
+  s.platform      = Gem::Platform::RUBY
+  s.name          = 'mangaeden_api'
+  s.version       = MangaedenApi::VERSION
+  s.authors       = ['Luca Ferri']
+  s.email         = ['luca.ferri88@gmail.com']
+  s.description   = 'A Mangaeden API wrapper'
+  s.summary       = 'Wrapper for Mangaeden API (http://www.mangaeden.com/api/)'
+  s.homepage      = 'http://lucaferri.github.io/mangaeden_api'
+  s.license       = 'MIT'
 
-  gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ['lib']
+  s.files         = `git ls-files`.split($/)
+  s.executables   = s.files.grep(%r{^bin/}).map { |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
 
-  gem.add_dependency('json', '~> 1.8')
-
-  gem.post_install_message = 'Thank for installing!'
+  s.required_ruby_version = '>= 1.9.2'
+  s.add_dependency('json', '~> 1.8')
 end

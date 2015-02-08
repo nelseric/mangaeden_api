@@ -50,7 +50,7 @@ module MangaedenApi
       mangas['manga']
     end
 
-    # Return an array of manga objetcs.
+    # Return a manga objetc.
     #
     # URL: https://www.mangaeden.com/api/manga/[manga.id]/
     # Example: https://www.mangaeden.com/api/manga/4e70e9f6c092255ef7004336/
