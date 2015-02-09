@@ -33,8 +33,9 @@
 
 <p><a href="http://badge.fury.io/gh/lucaferri%2Fmangaeden_api"><img src="https://badge.fury.io/gh/lucaferri%2Fmangaeden_api.svg" alt="GitHub version"></a>
 <a href="https://travis-ci.org/lucaferri/mangaeden_api"><img src="https://travis-ci.org/lucaferri/mangaeden_api.svg?branch=master" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/lucaferri/mangaeden_api"><img src="https://codeclimate.com/github/lucaferri/mangaeden_api/badges/gpa.svg" alt="Code Climate"></a>
 <a href="https://coveralls.io/r/lucaferri/mangaeden_api"><img src="https://img.shields.io/coveralls/lucaferri/mangaeden_api.svg" alt="Coverage Status"></a>
-<a href="https://inch-ci.org/github/lucaferri/mangaeden_api"><img src="https://inch-ci.org/github/lucaferri/mangaeden_api.svg?branch=master" alt="Inline docs"></a></p>
+<a href="http://inch-ci.org/github/lucaferri/mangaeden_api"><img src="http://inch-ci.org/github/lucaferri/mangaeden_api.svg?branch=master&amp;style=flat" alt="Inline docs"></a></p>
 
 <p>Ruby wrapper for <a href="http://mangaeden.com/">mangaeden.com</a>.</p>
 
@@ -43,7 +44,7 @@
 
 <p>Add this line to your application's Gemfile:</p>
 
-<pre><code>gem 'mangaeden_api', :git =&gt; 'git://github.com/lucaferri/mangaeden_api.git'
+<pre><code>gem 'mangaeden_api', '~&gt; 0.1.1'
 </code></pre>
 
 <p>And then execute:</p>
@@ -53,25 +54,59 @@
 
 <p>Or install it yourself as:</p>
 
-<p><em>Download the source:</em></p>
-
-<pre><code>git clone https://github.com/lucaferri/mangaeden_api.git
-</code></pre>
-
-<p><em>Build the gem:</em></p>
-
-<pre><code>cd mangaeden_api &amp;&amp; gem build mangaeden_api.gemspec
-</code></pre>
-
-<p><em>Install it (the filename/version may vary):</em></p>
-
-<pre><code>gem install mangaeden_api-0.1.0.gem
+<pre><code>gem install mangaeden_api
 </code></pre>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p><strong>Coming soon...</strong></p>
+<h3>
+<a id="get-a-list-of-all-available-mangas" class="anchor" href="#get-a-list-of-all-available-mangas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get a list of all available mangas</h3>
+
+<pre><code>Mangaeden::Mangaeden.get_manga_list('en')
+</code></pre>
+
+<p>The argument is the language. Mangaeden supports <em>'en'</em> for English and <em>'it'</em> for Italian.<br>
+This function returns an Array with all the informations about available mangas.</p>
+
+<h3>
+<a id="get-info-about-a-specific-manga" class="anchor" href="#get-info-about-a-specific-manga" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get info about a specific manga</h3>
+
+<pre><code>Mangaeden::Mangaeden.get_manga_info('4e70e9f6c092255ef7004336')
+</code></pre>
+
+<p>The argument is the manga's id you can get from the previous function.<br>
+It returns a <em>Manga</em> object containing all the informations about the searched manga.</p>
+
+<h3>
+<a id="manga-class" class="anchor" href="#manga-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manga class</h3>
+
+<p>This class has an attribute for every information returned from the API: <em>aka</em>, <em>aka_alias</em>, <em>alias</em>, <em>artist</em>, <em>artist_kw</em>, <em>author</em>, <em>author_kw</em>, <em>categories</em>, <em>chapters_len</em>, <em>chapters_info</em>, <em>created</em>, <em>description</em>, <em>hits</em>, <em>image</em>, <em>language</em>, <em>last_chapter_date</em>, <em>random</em>, <em>released</em>, <em>starts_with</em>, <em>status</em>, <em>title</em>, <em>title_kw</em>, <em>type</em>, <em>updated_keywords</em>, <em>manga_id</em>.  </p>
+
+<p>You can also search a manga by title using  </p>
+
+<pre><code>Mangaeden::Manga.search('Hokuto no Ken')  
+</code></pre>
+
+<p><em>For now it only search in English.</em>  </p>
+
+<p><em>Manga</em> objects contain all informations about all chapters and they can be retrieved using <em>chapters</em> method.<br>
+It returns an Array of <em>Chapter</em> objects, each one containing the <em>title</em>, the <em>chapter_number</em> and a list of all <em>image urls</em>.</p>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>Improve <em>MangaedenApi::Manga.search</em> method to let user choose the language.</li>
+<li>Implement Api calls for
+
+<ul>
+<li><em>login</em></li>
+<li><em>logout</em></li>
+<li><em>mymanga</em></li>
+</ul>
+</li>
+</ul>
 
 <h2>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
