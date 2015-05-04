@@ -37,8 +37,8 @@ module MangaedenApi
 
     # Search for mangas with the specified title (case-insensitive) and return
     # an array of manga objects
-    def self.search(title)
-      manga_list = MangaedenApi::Mangaeden.get_manga_list.select do |m|
+    def self.search(title, language = 'en')
+      manga_list = MangaedenApi::Mangaeden.get_manga_list(language).select do |m|
         m['t'].downcase == title.downcase
       end
       mangas = []
