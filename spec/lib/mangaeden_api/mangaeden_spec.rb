@@ -75,7 +75,7 @@ describe MangaedenApi::Mangaeden do
       expect(manga.chapters_len).to eq(5)
       expect(manga.created).to eq(1_316_022_774.0)
       expect(manga.description).to eq('There is fighting at the high school due to a power struggle for control. The granddaughter of the chief director requests help from the Airin Dreamdo fighting style genius. Will he help? Or will he show his true colors with his bad boy ways?')
-      expect(manga.hits).to eq(18_388)
+      expect(manga.hits).to eq(19_038)
       expect(manga.image).to eq(MangaedenApi::IMAGE_HOST + '88/88482f39e126a59bcac77a1df273fae30a9af811fc16cb08f4910cc5.jpg')
       expect(manga.language).to eq(0)
       expect(manga.last_chapter_date).to eq(1_275_542_373.0)
